@@ -5,7 +5,12 @@ from tkinter import messagebox
 MAX_RISER = 175
 MIN_TREAD = 250
 MAX_STEPS = 16
-APPLE_GREEN = "#81e38d"
+CALC_BUTTON = "#8CB5BF"
+CLEAR_B = "#C17587"
+TXT_BUTTON = "#F2E6DE"
+CANV_BG = "#DAA5A4"
+WX = "400"
+WY = "650"
 
 #----------------------------CALCULATE FUNCTION----------------------------------#
 
@@ -49,7 +54,21 @@ window = Tk()
 window.title("Stair Calculator")
 window.config(padx=30, pady=30, bg="white")
 
-canvas = Canvas(width=300, height=300, bg="white", highlightthickness=0)
+# Set the size of the window
+window.geometry(f"{WX}x{WY}")
+
+# Get the screen width and height
+screen_width = window.winfo_screenwidth()
+screen_height = window.winfo_screenheight()
+
+# Calculate the position of the window
+x = (screen_width / 2) - (int(WX) / 2)
+y = (screen_height / 2) - (int(WY) / 2)
+
+# Set the position of the window
+window.geometry(f"+{int(x)}+{int(y)}")
+
+canvas = Canvas(width=300, height=300, bg=CANV_BG, highlightthickness=0)
 stair_image = PhotoImage(file="stair_img.png")
 canvas.create_image(150, 150, image=stair_image)
 canvas.grid(row=0, column=0, columnspan=4)
@@ -79,9 +98,9 @@ total_run_length = Label(text="Min. run length\n(for single flight):",bg="white"
 total_run_length.grid(row=11, column=0)
 
 # BUTTON
-calculate_button = Button(text="Calculate", width=40, bg=APPLE_GREEN, command=calculate, font=("Arial", 10, "bold"))
+calculate_button = Button(text="Calculate", width=40, bg=CALC_BUTTON, command=calculate, font=("Arial", 10, "bold"))
 calculate_button.grid(row=5, column=0,columnspan=4)
-clear_button = Button(text="Clear all", width=40, bg="red", command=clear_entry, font=("Arial", 10, "bold"))
+clear_button = Button(text="Clear all", width=40, bg=CLEAR_B, command=clear_entry, font=("Arial", 10, "bold"))
 clear_button.grid(row=12, column=0,columnspan=4)
 
 # ENTRY
