@@ -10,7 +10,7 @@ CLEAR_B = "#C17587"
 TXT_BUTTON = "#F2E6DE"
 CANV_BG = "#DAA5A4"
 WX = "400"
-WY = "650"
+WY = "350"
 
 #----------------------------CALCULATE FUNCTION----------------------------------#
 
@@ -68,11 +68,6 @@ y = (screen_height / 2) - (int(WY) / 2)
 # Set the position of the window
 window.geometry(f"+{int(x)}+{int(y)}")
 
-canvas = Canvas(width=300, height=300, bg=CANV_BG, highlightthickness=0)
-stair_image = PhotoImage(file="stair_img.png")
-canvas.create_image(150, 150, image=stair_image)
-canvas.grid(row=0, column=0, columnspan=4)
-
 
 
 # LABELS
@@ -123,7 +118,7 @@ total_run_length_entry = Entry(width=30)
 total_run_length_entry.grid(row=11, column=1)
 
 
-
+# pyinstaller --noconsole --icon=youricon.ico yourscriptname.py
 
 
 
